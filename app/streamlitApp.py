@@ -5,6 +5,7 @@ import pandas as pd
 from PIL import Image
 import time
 
+
 # Set Streamlit page configuration
 st.set_page_config(
     page_title="Timelytics - Delivery Time Predictor",
@@ -13,7 +14,7 @@ st.set_page_config(
 )
 
 # Load the trained ensemble model
-modelfile = "./voting_model.pkl"
+modelfile = r"app\model\voting_model.pkl"
 voting_model = pickle.load(open(modelfile, "rb"))
 
 # Function to predict delivery time
@@ -29,7 +30,7 @@ def predict_delivery_time(purchase_dow, purchase_month, year, product_size_cm3,
 
 # Sidebar for input parameters
 with st.sidebar:
-    img = Image.open("./assets/supply_chain_optimisation.jpg")
+    img = Image.open(r"app\assets\supply_chain_optimisation.jpg")
     st.image(img)
     st.header("Input Parameters")
     
